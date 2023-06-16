@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8">
+		<title>申し込み確認</title>
+		<link rel="stylesheet" href="../css/application/confirm.css">
+	</head>
+	<body>
+		<h1>申し込み確認</h1>
+		
+		<form th:action="@{/aCompletion}" method="get">
+			<div>※ 入力内容を確認してください。</div>
+			
+			<div th:object="${applicationEntity}">
+				<label>お名前</label>
+				<span th:text="*{name}"></span><br>
+				<label>フリガナ</label>
+				<span th:text="*{furigana}"></span><br>
+				<label>Eメールアドレス</label>
+				<span th:text="*{mail}"></span><br>
+				<label>性別</label>
+				<div th:if="*{gender} == 1">
+					●男 〇女 〇その他
+				</div>
+				<div th:if="*{gender} == 2">
+					〇男 ●女 〇その他
+				</div>
+				<div th:if="*{gender} == 3">
+					〇男 〇女 ●その他
+				</div>
+				<label>生年月日</label>
+				<span th:text="*{year}"></span>年
+				<span th:text="*{month}"></span>月
+				<span th:text="*{day}"></span>日<br>
+				<label>電話番号</label>
+				<span th:text="*{tel}"></span><br>
+				<label>希望講座</label>
+				<table border="1" style="border-collapse: collapse">
+					<thead>
+						<tr>
+							<th>開催日時</th>
+							<th>講座名</th>
+							<th>空席状況</th>
+							<th>チェック</th>
+						</tr>
+					</thead>
+				</table>
+				<label>備考欄</label>
+				<span th:text="*{remarks}" class="newline"></span><br>
+			</div>
+			
+			<input type="submit" value="戻る" formaction="/apply" formmethod="get"/>
+			<input type="submit" value="申し込み"/>
+		</form>
+	</body>
+</html>

@@ -1,0 +1,22 @@
+@charset "UTF-8";
+
+.title{
+	color: blue;
+	text-align: center;
+}
+
+.sub-title{
+	text-align: center;
+}
+
+.top-button{
+	text-align: center;
+	color: blue;
+	background-color: mediumspringgreen;
+	border-radius: 10%;
+	margin-bottom: -50pt;
+	margin-left: 400pt;
+	margin-top: 10pt;
+	padding-top: 0pt;;
+	width: 130px;
+}

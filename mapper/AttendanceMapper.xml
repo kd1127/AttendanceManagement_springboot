@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ <mapper namespace="com.example.demo.mapper.AttendanceMapper">
+    <insert id="insert" parameterType="com.example.demo.entity.RegisterInsertEntity">
+        INSERT INTO course(course_no, course_name, the_date, start_time, end_time, capacity, inp_date) 
+        VALUES (#{course_no}, #{course_name}, #{the_date}, #{start_time}, #{end_time}, #{capacity}, #{inp_date})
+    </insert>
+    <select id="selectCourseList" resultType="String">
+    	SELECT course_name FROM course where the_date >= CURDATE() ORDER BY the_date, course_no ASC LIMIT 5;
+    </select>
+    <select id="selectTheDate" resultType="String">
+    	SELECT the_date FROM course where the_date >= CURDATE() ORDER BY the_date, course_no ASC LIMIT 5;
+    </select>
+    <select id="selectStartTime" resultType="String">
+    	SELECT start_time FROM course where the_date >= CURDATE() ORDER BY the_date, course_no ASC LIMIT 5;
+    </select>
+    <select id="selectEndTime" resultType="String">
+    	SELECT end_time FROM course where the_date >= CURDATE() ORDER BY the_date, course_no ASC LIMIT 5;
+    </select>
+    <select id="selectCapacity" resultType="int">
+    	SELECT capacity FROM course where the_date >= CURDATE() ORDER BY the_date, course_no ASC LIMIT 5;
+    </select>
+    <insert id="insertApplication" parameterType="com.example.demo.entity.ApplicationEntity">
+    	INSERT INTO application (name, furigana, mail, gender, birthday, tel, remarks, inp_date) 
+    	VALUES(#{name}, #{furigana}, #{mail}, #{gender}, #{birthday}, #{tel}, #{remarks}, #{inp_date})
+    </insert>
+</mapper>

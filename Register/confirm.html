@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8">
+		<title>登録確認</title>
+		<link rel="stylesheet" href="../css/register/confirm.css"/>
+	</head>
+	<body>
+		<h1 class="title">登録確認</h1>
+		<p class="sub-title">※ 入力内容を確認してください。</p>
+		
+		<div th:object="${registerEntity}">
+			<span class="data-title">講座番号</span> <span th:text="*{course_no}" class="data-text"/><br>
+			
+			<span class="data-title">講座名</span><span th:text="*{course_name}" class="data-text-name"/><br>
+			
+			<span class="data-title">講座開催日</span><span th:text="*{iyear}" class="data-text-time"/><span class="unit">年</span>
+					 <span th:text="*{imonth}" class="data-text-time2"/><span class="unit">月</span>
+					 <span th:text="*{iday}" class="data-text-time2"/><span class="unit">日</span><br>
+					 
+			<span class="data-title">開始時刻</span><span th:text="*{shour}" class="data-text-st"/><span class="unit">時</span>
+					<span th:text="*{sminute}" class="data-text-st2"/><span class="unit">分</span><br>
+					
+			<span class="data-title">終了時刻</span><span th:text="*{ehour}" class="data-text-et"/><span class="unit">時</span>
+					<span th:text="*{eminute}" class="data-text-et2"/><span class="unit">分</span><br>
+					
+			<span class="data-title">定員</span><span th:text="*{capacity}" class="data-text-cp"/><span class="unit">人</span>
+		</div>
+		
+		<form th:action="@{/atdcRegister}" method="get">
+			<input type="submit" value="戻る" class="confirm-button">
+			<input type="submit" value="登録" formaction="/completion" formmethod="get" class="confirm-button2">
+		</form>
+	</body>
+</html>

@@ -1,0 +1,95 @@
+@charset "UTF-8";
+
+.title{
+	color: blue;
+	text-align: center;
+}
+
+.sub-title{
+	color: red;
+	text-align: center;
+	font-weight: 900;
+	font-size: large;
+}
+
+.data-title{
+	color: blue;
+	font-weight: 900;
+	padding-left: 350pt;
+}
+
+.data-text{
+	font-weight: 900;
+	padding-left: 48pt;
+}
+
+.data-text-name{
+	font-weight: 900;
+	padding-left: 65pt;
+}
+
+.data-text-time{
+	font-weight: 900;
+	padding-left: 40pt;
+}
+
+.data-text-time2{
+	font-weight: 900;
+	padding-left: 10pt;
+}
+
+.data-text-st{
+	font-weight: 900;
+	padding-left: 53pt;
+}
+
+.data-text-st2{
+	font-weight: 900;
+	padding-left: 20pt;
+}
+
+
+.data-text-et{
+	font-weight: 900;
+	padding-left: 53pt;
+}
+
+.data-text-et2{
+	font-weight: 900;
+	padding-left: 20pt;
+}
+
+.data-text-cp{
+	font-weight: 900;
+	padding-left: 77pt;
+}
+
+.unit{
+	color: blue;
+	font-weight: 900;
+	padding-left: 10pt;
+}
+
+.confirm-button{
+	text-align: center;
+	color: blue;
+	background-color: mediumspringgreen;
+	border-radius: 10%;
+	margin-bottom: -50pt;
+	margin-left: 380pt;
+	margin-top: 10pt;
+	padding-top: 0pt;;
+	width: 130px;
+}
+
+.confirm-button2{
+	text-align: center;
+	color: blue;
+	background-color: mediumspringgreen;
+	border-radius: 10%;
+	margin-bottom: -50pt;
+	margin-left: 0pt;
+	margin-top: 10pt;
+	padding-top: 0pt;
+	width: 130px;
+}

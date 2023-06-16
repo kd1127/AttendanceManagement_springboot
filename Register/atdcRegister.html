@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8">
+		<title>講座登録</title>
+		<link rel="stylesheet" href="../css/register/atdcRegister.css"/>
+	</head>
+	<body>
+		<h1 class="title">講座登録</h1>
+		<div class="sub-title">※ は入力必須です。</div>
+		
+		<div th:if="${errorMsg} != null" class="error-box">
+			<span th:each="message : ${errorMsg}">
+				<div th:text="${message}"></div>
+			</span>
+		</div>
+		
+		<form th:action="@{/confirm}" method="post" th:object="${registerEntity}">
+			<label class="name-label">講座番号 <span class="different-style">※</span></label>
+			<input maxlength="4" type="text" th:field="*{course_no}" class="text-box"/><br>
+			<span th:if="${#fields.hasErrors('course_no')}" th:errors="*{course_no}">
+				講座番号入力エラー
+			</span>
+			
+			<label class="name-label">講座名 <span class="different-style">※</span></label>
+			<input maxlength="40" type="text" th:field="*{course_name}" class="text-box" style="margin-left: 45pt"/><br>
+			<span th:if="${#fields.hasErrors('course_name')}" th:errors="*{course_name}">
+				講座名入力エラー
+			</span>
+			
+			<label class="name-label">講座開催日 <span class="different-style">※</span></label>
+			<select th:field="*{iyear}" class="pulldown-menu-y">
+				<option value=""/>
+				<option th:value="${iyear}" th:each="iyear : ${ylist}"><span th:text="${iyear}"/></option>
+			</select><span class="time-string">年</span>
+			
+			<select th:field="*{imonth}">
+				<option value=""/>
+				<option th:value="${imonth}" th:each="imonth : ${mlist}"><span th:text="${imonth}"/></option>
+			</select><span class="time-string">月</span>
+			
+			<select th:field="*{iday}">
+				<option value=""/>
+				<option th:value="${iday}" th:each="iday : ${dlist}"><span th:text="${iday}"/></option>
+			</select><span class="time-string">日</span><br>
+			
+			<label class="name-label">開始時刻 <span class="different-style">※</span></label>
+			<select th:field="*{shour}" class="pulldown-menu-t">
+				<option value=""/>
+				<option th:value="${shour}" th:each="shour : ${shlist}"><span th:text="${shour}"/></option>
+			</select><span class="time-string">時</span>
+			
+			<select th:field="*{sminute}">
+				<option value=""/>
+				<option th:value="${sminute}" th:each="sminute : ${smlist}" ><span th:text="${sminute}"/></option>
+			</select><span class="time-string">分</span><br>
+			
+			<label class="name-label">終了時刻 <span class="different-style">※</span></label>
+			<select th:field="*{ehour}" class="pulldown-menu-t">
+				<option value=""/>
+				<option th:value="${ehour}" th:each="ehour : ${ehlist}"><span th:text="${ehour}"/></option>
+			</select><span class="time-string">時</span>
+			
+			<select th:field="*{eminute}">
+				<option value=""/>
+				<option th:value="${eminute}" th:each="eminute : ${emlist}"><span th:text="${eminute}"/></option>
+			</select><span class="time-string">分</span><br>
+			
+			<label class="name-label">定員 <span class="different-style">※</span></label>
+			<input type="text" th:field="*{capacity}" class="text-box2"><br>
+			
+			<input type="submit" value="戻る" formaction="/RegisterTop" formmethod="get" class="atdc-button"/>
+			<input type="submit" value="確認" class="atdc-button2"/>
+		</form>
+	</body>
+</html>
