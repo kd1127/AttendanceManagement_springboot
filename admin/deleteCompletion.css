@@ -1,0 +1,60 @@
+@charset "UTF-8";
+
+.title{
+	color: blue;
+	text-align: center;
+}
+
+.explain{
+	color: blue;
+	text-align: center;
+	font-weight: bold;
+}
+
+.registop-button{
+	text-align: center;
+	color: blue;
+	background-color: mediumspringgreen;
+	border-radius: 10%;
+	margin-bottom: -50pt;
+	margin-left: 280pt;
+	margin-top: 10pt;
+	padding-top: 0pt;;
+	width: 130px;
+}
+
+.search-button{
+	text-align: center;
+	color: blue;
+	background-color: mediumspringgreen;
+	border-radius: 10%;
+	margin-bottom: -50pt;
+	margin-left: 0pt;
+	margin-top: 10pt;
+	padding-top: 0pt;;
+	width: 130px;
+}
+
+.list-button{
+	text-align: center;
+	color: blue;
+	background-color: mediumspringgreen;
+	border-radius: 10%;
+	margin-bottom: -50pt;
+	margin-left: 0pt;
+	margin-top: 10pt;
+	padding-top: 0pt;;
+	width: 130px;
+}
+
+.logout-button{
+	text-align: center;
+	color: blue;
+	background-color: mediumspringgreen;
+	border-radius: 10%;
+	margin-bottom: -50pt;
+	margin-left: 0pt;
+	margin-top: 10pt;
+	padding-top: 0pt;;
+	width: 130px;
+}

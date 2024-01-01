@@ -1,0 +1,35 @@
+@charset "UTF-8";
+
+.title{
+	color: blue;
+	text-align: center;
+}
+
+.display{
+	text-align: center;
+	padding-right: 30pt;
+}
+
+.back-button{
+	text-align: center;
+	color: blue;
+	background-color: mediumspringgreen;
+	border-radius: 10%;
+	margin-bottom: -50pt;
+	margin-left: 380pt;
+	margin-top: 10pt;
+	padding-top: 0pt;;
+	width: 130px;
+}
+
+.regis-button{
+	text-align: center;
+	color: blue;
+	background-color: mediumspringgreen;
+	border-radius: 10%;
+	margin-bottom: -50pt;
+	margin-left: 10pt;
+	margin-top: 10pt;
+	padding-top: 0pt;;
+	width: 130px;
+}

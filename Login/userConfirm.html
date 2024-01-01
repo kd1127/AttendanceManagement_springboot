@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8">
+		<title>ユーザー登録確認</title>
+		<link rel="stylesheet" href="../css/login/userConfirm.css">
+	</head>
+	<body>
+		<h1 class="title">ユーザー登録確認</h1>
+		<div th:object="${userEntity}">
+			<p class="display">ユーザーID <span th:text="*{userId}"></span></p>
+		</div>
+		
+		<form th:action="@{userCompletion}" method="get">
+			<input type="submit" value="戻る" formaction="/userRegister" formmethod="get" name="name" class="back-button"/>
+			<input type="submit" value="登録" class="regis-button"/>
+		</form>
+	</body>
+</html>

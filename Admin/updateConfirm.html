@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8">
+		<title>修正確認</title>
+		<link rel="stylesheet" href="../css/admin/updateConfirm.css">
+	</head>
+	<body>
+		<h1 class="title">修正確認</h1>
+		<p class="explain">講座内容の修正情報を確認してください。</p>
+		
+		<form th:action="updateCompletion" method="get" th:object="${registerEntity}">
+			<label class="courseno-block"><span class="font-color">講座番号</span></label>
+			<span th:text="*{course_no}"></span><br>
+			<label class="coursename-block"><span class="font-color">講座名</span></label>
+			<span th:text="*{course_name}"></span><br>
+			<label class="thedate-block"><span class="font-color">講座開催日</span></label>
+			<span th:text="*{iyear}"></span>年
+			<span th:text="*{imonth}"></span>月
+			<span th:text="*{iday}"></span>日<br>
+			<label class="time-block"><span class="font-color">開始時刻</span></label>
+			<span th:text="*{shour}"></span>時
+			<span th:text="*{sminute}"></span>分<br>
+			<label class="time-block"><span class="font-color">終了時刻</span></label>
+			<span th:text="*{ehour}"></span>時
+			<span th:text="*{eminute}"></span>分<br>
+			<label class="capacity-block"><span class="font-color">定員</span></label>
+			<span th:text="*{capacity}"></span>人<br>
+			<input type="submit" value="戻る" formaction="/courseUpdate" name="course_no_ud" class="back-button"/>
+			<input type="submit" value="修正" class="update-button"/>
+		</form>
+	</body>
+</html>

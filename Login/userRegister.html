@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8">
+		<title>ユーザー登録</title>
+		<link rel="stylesheet" href="../css/login/userRegister.css">
+	</head>
+	<body>
+		<h1 class="title">ユーザー登録</h1>
+		<p class="note">※ は必須項目です。</p>
+		<div th:if="${message} != null"  class="error">
+			<span th:each="msg : ${message}">
+				<span th:text="${msg}"></span><br>
+			</span>
+		</div>
+		
+		<form th:action="@{userConfirm}" method="post" th:object="${userEntity}" novalidate>
+			<label class="userid-block">ユーザーID <span class="symbol">※</span></label>
+			<input type="text" maxlength="12" th:field="*{userId}"/>
+			<span th:if="${#fields.hasErrors('userId')}" th:errors="*{userId}">
+				ユーザID入力エラー
+			</span><br>
+			<label class="passwd-block">パスワード <span class="symbol">※</span></label>
+			<input type="password" maxlength="12" th:field="*{passWd}"/>
+			<span th:if="${#fields.hasErrors('passWd')}" th:errors="*{passWd}">
+				パスワード入力エラー
+			</span><br>
+			<label class="repasswd-block">パスワード（確認用）</label>
+			<input type="password" maxlength="12" th:field="*{re_passWd}"/>
+			<span th:if="${#fields.hasErrors('re_passWd')}" th:errors="*{re_passWd}">
+				パスワード再入力エラー
+			</span><br>
+				
+			<input type="submit" value="戻る" formaction="/login" formmethod="get" class="back-button"/>
+			<input type="submit" value="確認" class="confirm-button"/>
+		</form>
+	</body>
+</html>

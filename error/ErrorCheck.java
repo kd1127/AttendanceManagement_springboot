@@ -4,9 +4,13 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.stereotype.Component;
+import org.springframework.ui.Model;
+
 import com.example.demo.db.DataBaseOperation;
 import com.example.demo.entity.RegisterEntity;
 
+@Component
 public class ErrorCheck {
 	public List<String> errorCheck(RegisterEntity reEntity) throws SQLException{
 		//	コントローラークラスに返却するときに使用するList
@@ -36,7 +40,7 @@ public class ErrorCheck {
 		}
 		catch(SQLException e) {
 			e.printStackTrace();
-			System.out.println("データ取得失敗しました。。。");
+			System.out.println("データ取得できませんでした。。。");
 		}
 		
 		//	講座名のチェック
@@ -48,18 +52,24 @@ public class ErrorCheck {
 		message = "講座開催日";
 		if(reEntity.getIyear() == null || reEntity.getImonth() == null || reEntity.getIday() == null) {
 			if(reEntity.getIyear() == null) {
-				message = message.concat("「年」");
+				message = message.concat("「年");
 				
 				if(reEntity.getImonth() == null) {
-					message = message.concat("「月」");
+					message = message.concat("月");
 					
 					if(reEntity.getIday() == null) {
-						message = message.concat("「日」");
+						message = message.concat("日」");
+					}
+					else {
+						message = message.concat("」");
 					}
 				}
 				else {
 					if(reEntity.getIday() == null) {
-						message = message.concat("「日」");
+						message = message.concat("日」");
+					}
+					else {
+						message = message.concat("」");
 					}
 				}
 			}
@@ -67,7 +77,10 @@ public class ErrorCheck {
 				message = message.concat("「月」");
 				
 				if(reEntity.getIday() == null) {
-					message = message.concat("「日」");
+					message = message.concat("日」");
+				}
+				else {
+					message = message.concat("」");
 				}
 			}
 			else {
@@ -81,10 +94,13 @@ public class ErrorCheck {
 		message = "開始時刻";
 		if(reEntity.getShour() == null || reEntity.getSminute().equals("")) {
 			if(reEntity.getShour() == null) {
-				message = message.concat("「時」");
+				message = message.concat("「時");
 				
 				if(reEntity.getSminute().equals("")) {
-					message = message.concat("「分」");
+					message = message.concat("分」");
+				}
+				else {
+					message = message.concat("」");
 				}
 			}
 			else {
@@ -100,10 +116,13 @@ public class ErrorCheck {
 		message = "終了時刻";
 		if(reEntity.getEhour() == null || reEntity.getEminute().equals("")) {
 			if(reEntity.getEhour() == null) {
-				message = message.concat("「時」");
+				message = message.concat("「時");
 				
 				if(reEntity.getEminute().equals("")) {
-					message = message.concat("「分」");
+					message = message.concat("分」");
+				}
+				else {
+					message = message.concat("」");
 				}
 			}
 			else {
@@ -125,7 +144,7 @@ public class ErrorCheck {
 			start_time = Integer.parseInt(shour);
 			end_time = Integer.parseInt(ehour);
 			
-			if(start_time > end_time) {
+			if(start_time >= end_time) {
 				errorMsg.add("「終了時刻」は「開始時刻」よりも後の時刻を入力してください。");
 			}
 		}
@@ -147,5 +166,29 @@ public class ErrorCheck {
 		}
 		
 		return errorMsg;
+	}
+	
+	//	講座検索画面でのエラーチェック（開始時刻と終了時刻のみ）
+	public boolean courseSearchErrorCheck(RegisterEntity registerEntity, Model model) {
+		//	エラーがあればtrue、なければfalse
+		boolean flag = false;
+		
+		//	開始時刻の検証、両方とも空だとエラー
+		String startTimeError = "";
+		if(registerEntity.getShour() != null && registerEntity.getSminute().equals("")) {
+			startTimeError = "「開始時刻」は「時」「分」どちらも入力してください";
+			flag = true;
+		}
+		model.addAttribute("startTimeError", startTimeError);
+		
+		//	終了時刻の検証、両方とも空だとエラー
+		String endTimeError = "";
+		if(registerEntity.getEhour() != null && registerEntity.getEminute().equals("")) {
+			endTimeError = "「終了時刻」は「時」「分」どちらも入力してください";
+			flag = true;
+		}
+		model.addAttribute("endTimeError", endTimeError);
+		
+		return flag;
 	}
 }

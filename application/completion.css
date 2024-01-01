@@ -1,0 +1,25 @@
+@charset "UTF-8";
+
+.title{
+	color: blue;
+	text-align: center;
+	font-weight: bolder;
+}
+
+.message{
+	color: blue;
+	text-align: center;
+	font-weight: bolder;
+}
+
+.apply{
+	text-align: center;
+	color: blue;
+	background-color: mediumspringgreen;
+	border-radius: 10%;
+	margin-bottom: -50pt;
+	margin-left: 430pt;
+	margin-top: 10pt;
+	padding-top: 0pt;;
+	width: 130px;
+}

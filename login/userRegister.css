@@ -1,0 +1,66 @@
+@charset "UTF-8";
+
+.title{
+	color: blue;
+	text-align: center;
+}
+
+.note{
+	color: red;
+	text-align: center;
+	font-weight: bold;
+	margin-top: -20pt;
+}
+
+.error{
+	text-align: center;
+}
+
+.symbol{
+	color: red;
+}
+
+.userid-block{
+	color: blue;
+	margin-left: 250pt;
+	margin-right: 76pt;	
+	font-weight: bold;
+}
+
+.passwd-block{
+	color: blue;
+	margin-left: 250pt;
+	margin-right: 79pt;
+	font-weight: bold;
+}
+
+.repasswd-block{
+	color: blue;
+	margin-left: 250pt;
+	margin-right: 35pt;
+	font-weight: bold;
+}
+
+.back-button{
+	text-align: center;
+	color: blue;
+	background-color: mediumspringgreen;
+	border-radius: 10%;
+	margin-bottom: -50pt;
+	margin-left: 380pt;
+	margin-top: 10pt;
+	padding-top: 0pt;;
+	width: 130px;
+}
+
+.confirm-button{
+	text-align: center;
+	color: blue;
+	background-color: mediumspringgreen;
+	border-radius: 10%;
+	margin-bottom: -50pt;
+	margin-left: 10pt;
+	margin-top: 10pt;
+	padding-top: 0pt;;
+	width: 130px;
+}

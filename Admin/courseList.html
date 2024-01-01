@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8">
+		<title>講座一覧</title>
+		<link rel="stylesheet" href="../css/admin/courseList.css">
+	</head>
+	<body>
+		<h1 class="title">講座一覧</h1>
+		
+		<table border="1" style="border-collapse: collapse" class="table-layout">
+			<thead class="head-display">
+				<tr>
+					<th width="10%">講座番号</th>
+					<th width="15%">講座名</th>
+					<th>開催日時</th>
+					<th width="10%">定員</th>
+					<th width="10%">状態</th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="i : ${maxList}">
+					<td th:text="${courseNoList.get(i)}"></td>
+					<td th:text="${courseNameList.get(i)}"></td>
+					<td th:text="${dateAndTimeList.get(i)}"></td>
+					<td th:text="${capacityList.get(i)}"  style="text-align: center"></td>
+					<td th:text="${situationList.get(i)}" style="text-align: center"></td>
+					<td>
+						<form th:action="@{/courseUpdate}" method="get">
+							<label for="update">
+							<input type="submit" value="修正" class="update-button"></label>
+							<input type="hidden" name="course_no_ud" th:value="${courseNoList.get(i)}" id="update"/>
+						
+							<label for="delete">
+							<input type="submit" value="削除" formaction="/courseDelete" class="delete-button"/></label>
+							<input type="hidden" name="course_no_de" th:value="${courseNoList.get(i)}" id="delete">
+						</form>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+			
+		<form th:action="@{/search}" method="get">
+			<input type="submit" value="講座検索" class="search-button"/>
+		</form>	
+	</body>
+</html>

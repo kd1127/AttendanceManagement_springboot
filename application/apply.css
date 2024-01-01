@@ -1,0 +1,118 @@
+@charset "UTF-8";
+
+.title{
+	color: blue;
+	text-align: center;
+	font-weight: bolder;
+}
+
+.note{
+	color: red;
+	text-align: center;
+	font-weight: bolder;
+	margin-top: -20pt;
+}
+
+.error-box{
+	background-color: #ffff99;
+	border: solid 2px;
+	color: red;
+	font-weight: bolder;
+	margin-left: 300pt;
+	margin-right: 300pt;
+	margin-bottom: 20pt;
+}
+
+.label{
+	color: blue;
+	font-weight: bolder;
+	margin-left: 250pt;
+}
+
+.asterisk{
+	color: red;
+}
+
+input{
+	margin-bottom: 10pt;
+}
+
+select{
+	margin-bottom: 10pt;
+}
+
+table{
+	width: 500pt;
+	text-align: center;
+}
+
+th{
+	background:aqua;
+}
+
+.text-box{
+	margin-left: 80pt;
+	padding-right: 30pt;
+}
+
+.text-box-f{
+	margin-left: 68pt;
+	padding-right: 30pt;
+}
+
+.text-box-e{
+	margin-left: 40pt;
+	padding-right: 30pt;
+}
+
+.radio-button{
+	margin-left: 110pt;
+}
+
+.select-box{
+	margin-left: 67pt; 
+}
+
+.ymd{
+	color:blue;
+	font-weight: bolder;
+}
+
+.text-box-t{
+	margin-left: 83pt;
+	padding-right: 30pt;
+}
+
+.table{
+	margin-left: 350pt;
+	margin-top: -15pt;
+}
+
+#inputlength{
+	margin-left: 360pt;
+}
+
+.position{	
+  margin-left: 420pt;
+}
+
+.text-box-ta{
+	margin-left: 120pt;
+	padding-right: 30pt;
+}
+
+#remaining-characters.max {
+  color: #dd3535;
+}
+
+.apply-button{
+	text-align: center;
+	color: blue;
+	background-color: mediumspringgreen;
+	border-radius: 10%;
+	margin-bottom: -50pt;
+	margin-left: 430pt;
+	margin-top: 10pt;
+	padding-top: 0pt;;
+	width: 130px;
+}

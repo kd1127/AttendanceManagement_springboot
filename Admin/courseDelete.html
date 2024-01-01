@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8">
+		<title>削除確認</title>
+		<link rel="stylesheet" href="../css/admin/courseDelete.css">
+	</head>
+	<body>
+		<h1 class="title">削除確認</h1>
+		<p class="explain">削除する講座情報を確認してください。</p>
+		
+		<form th:action="@{/deleteCompletion}" method="post" th:object="${registerEntity}">
+			<label class="courseno-block"><span class="font-color">講座番号</span></label>
+			<span th:text="*{course_no}"></span><br>
+			<label class="coursename-block"><span class="font-color">講座名</span></label>
+			<span th:text="*{course_name}"></span><br>
+			<label class="thedate-block"><span class="font-color">講座開催日</span></label>
+			<span th:text="*{iyear}"></span>年
+			<span th:text="*{imonth}"></span>月
+			<span th:text="*{iday}"></span>日<br>
+			<label class="time-block"><span class="font-color">開始時刻</span></label>
+			<span th:text="*{shour}"></span>時
+			<span th:text="*{sminute}"></span>分<br>
+			<label class="time-block"><span class="font-color">終了時刻</span></label>
+			<span th:text="*{ehour}"></span>時
+			<span th:text="*{eminute}"></span>分<br>
+			<label class="capacity-block"><span class="font-color">定員</span></label>
+			<span th:text="*{capacity}"></span><br>
+			<input type="submit" value="戻る" formaction="/courseList" name="situation" class="back-button"/>
+			<input type="submit" value="削除" class="delete-button"/>
+		</form>
+	</body>
+</html>

@@ -1,0 +1,44 @@
+@charset "UTF-8";
+
+.title{
+	font-weight: bold;
+	text-align: center;
+	color: blue;
+}
+
+.table-layout{
+	margin-left: 150pt;
+	width: 70%
+}
+
+.head-display{
+	background-color: aqua;
+}
+
+.update-button{
+	text-align: center;
+	color: blue;
+	background-color: mediumspringgreen;
+	border-radius: 10%;
+	width: 40%;
+}
+
+.delete-button{
+	text-align: center;
+	color: blue;
+	background-color: mediumspringgreen;
+	border-radius: 10%;
+	width: 40%;
+}
+
+.search-button{
+	text-align: center;
+	color: blue;
+	background-color: mediumspringgreen;
+	border-radius: 10%;
+	margin-bottom: -50pt;
+	margin-left: 750pt;
+	margin-top: 10pt;
+	padding-top: 0pt;;
+	width: 130px;
+}

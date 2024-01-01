@@ -1,0 +1,94 @@
+@charset "UTF-8";
+
+.newline{
+	white-space: pre-wrap;
+	margin-left: 400pt;
+	font-weight: bolder;
+}
+
+.title{
+	color: blue;
+	text-align: center;
+	font-weight: bolder;
+}
+
+.note{
+	color: red;
+	text-align: center;
+	font-weight: bolder;
+	margin-top: -20pt;
+}
+
+.label{
+	color: blue;
+	font-weight: bolder;
+	margin-left: 280pt;
+}
+
+.text-box{
+	margin-left: 80pt;
+	padding-right: 30pt;
+	font-weight: bolder;
+}
+
+.text-box-f{
+	margin-left: 68pt;
+	padding-right: 30pt;
+	font-weight: bolder;
+}
+
+.text-box-e{
+	margin-left: 25pt;
+	padding-right: 30pt;
+	font-weight: bolder;
+}
+
+.gender-check-box{
+	font-weight: bolder;
+	margin-left: 400pt;
+	margin-top: -17pt;
+}
+
+.ymd{
+	font-weight: bolder;
+	margin-left: 400pt;
+	margin-top: -17pt;	
+}
+
+.telephone{
+	font-weight: bolder;
+	margin-left: 68pt;
+}
+
+table{
+	width: 500pt;
+	text-align: center;
+	margin-left: 400pt;
+	margin-top: -17pt;
+}
+
+th{
+	background:aqua;
+}
+
+.apply-button-back{
+	color: blue;
+	background-color: mediumspringgreen;
+	border-radius: 10%;
+	margin-bottom: -50pt;
+	margin-left: 350pt;
+	margin-top: 0pt;
+	padding-top: 0pt;
+	width: 130px;
+}
+
+.apply-button_apply{
+	color: blue;
+	background-color: mediumspringgreen;
+	border-radius: 10%;
+	margin-bottom: -50pt;
+	margin-left: 50pt;
+	margin-top: 0pt;
+	padding-top: 0pt;
+	width: 130px;
+}

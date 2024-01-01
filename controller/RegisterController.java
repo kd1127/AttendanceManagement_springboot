@@ -7,39 +7,47 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import static java.lang.System.*;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
-import com.example.demo.db.DataBaseOperation;
 import com.example.demo.entity.RegisterEntity;
 import com.example.demo.entity.RegisterInsertEntity;
+import com.example.demo.entity.UserEntity;
 import com.example.demo.error.ErrorCheck;
 import com.example.demo.mapper.AttendanceMapper;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
-import jakarta.validation.Valid;
 
 @Controller
 @SessionAttributes(types = RegisterEntity.class)
 @ComponentScan("com.example.demo.mapper.AttendanceMapper")
+@Transactional
 public class RegisterController {
 	
 	static boolean sessionFlag = false;
+	//	講座登録画面の定員に文字を入れて戻ると、遷移先画面が表示される前にエラーになったので、
+	//	フラグを定義して、講座登録画面に遷移するとtrueになる。ControllerAdviceでは、このフラグの条件で分岐する
+	static boolean pageFlag = false;
 	
-	@Autowired 
-	private RegisterInsertEntity riEntity;
+	//	グローバル変数
+	public static String userId;
 	
-	@Autowired
-	private AttendanceMapper mapper;
+	@Autowired private RegisterInsertEntity riEntity;
+	
+	@Autowired private AttendanceMapper mapper;
 	
 	//	入力フォームの値の受け渡しを行うためのインスタンス生成メソッド
 	@ModelAttribute
@@ -79,63 +87,41 @@ public class RegisterController {
 		//	------------------------------------------------------
 	}
 	
-	@GetMapping("/RegisterTop")
-	public String registerTop(@ModelAttribute RegisterEntity registerEntity, BindingResult bindingResult, HttpSession session, SessionStatus sessionStatus) {
-		if(bindingResult.hasErrors()) {
-			String capacity = bindingResult.getFieldError().getField();
-			
-			if(capacity.equals("capacity")) {
-				registerEntity.setCapacity(-999999999);
-			}
-			else {
-				return "Register/atdcRegister";
-			}
-		}		
-		
+	@PostMapping("/RegisterTop")
+	public String registerTop(@ModelAttribute RegisterEntity registerEntity, HttpSession session, SessionStatus sessionStatus, 
+			Model model, @RequestParam String situation) {
+		model.addAttribute("userId", userId);
 		//	セッション情報を破棄
 		session.removeAttribute("registerEntity");
 		session.invalidate();
 		sessionStatus.setComplete();
-		
+		registerEntity = null;
 		return "Register/RegisterTop";
 	}
 	
 	@GetMapping("/atdcRegister")
-	public String atdcRegister(Model model) {
+	public String atdcRegister(RegisterEntity registerEntity, Model model) {
 		listInitialize(model);
 		sessionFlag = false;
+		pageFlag = true;
+		model.addAttribute("registerEntity", registerEntity);
 		return "Register/atdcRegister";
 	}
 	
 	@PostMapping("/confirm")
-	public String confirm(@Valid @ModelAttribute RegisterEntity registerEntity, BindingResult bindingResult, Model model) {		
+	public String confirm(@ModelAttribute RegisterEntity registerEntity, BindingResult bindingResult, Model model) {		
 		if(bindingResult.hasErrors()) {
 			String capacity = bindingResult.getFieldError().getField();
-			
 			if(capacity.equals("capacity")) {
 				registerEntity.setCapacity(-999999999);
 			}
 			else {
 				return "Register/atdcRegister";
 			}
-		}		
+		}
 		
 		//		---------エラーチェック処理------
 		List<String> errorMsg = new ArrayList<>();
-//		System.out.println("course_no: " + registerEntity.getCourse_no());
-//		System.out.println("course_name: " + registerEntity.getCourse_name());
-//		System.out.println("the_date: " + registerEntity.getThe_date());
-//		System.out.println("start_time: " + registerEntity.getStart_time());
-//		System.out.println("end_time: " + registerEntity.getEnd_time());
-//		System.out.println("capacity: " + registerEntity.getCapacity());
-//		System.out.println("errorMsg:" + errorMsg.size());
-//		System.out.println("iyear: " + registerEntity.getIyear());
-//		System.out.println("imonth: " + registerEntity.getImonth());
-//		System.out.println("iday: " + registerEntity.getIday());
-//		System.out.println("shour: " + registerEntity.getShour());
-//		System.out.println("sminute: " + registerEntity.getSminute());
-//		System.out.println("ehour: " + registerEntity.getEhour());
-//		System.out.println("eminute: " + registerEntity.getEminute());
 		ErrorCheck errorCheck = new ErrorCheck();
 		
 		try {
@@ -145,15 +131,14 @@ public class RegisterController {
 			e.printStackTrace();
 		}
 		
+		model.addAttribute("registerEntity", registerEntity);
+		
 		if(!errorMsg.isEmpty()) {
 			listInitialize(model);
 			model.addAttribute("errorMsg", errorMsg);
-			model.addAttribute("registerEntity", registerEntity);
 			return "Register/atdcRegister";
 		}
 		//	--------------------------
-		
-		model.addAttribute("registerEntity", registerEntity);
 		return "Register/confirm";
 	}
 	
@@ -195,13 +180,7 @@ public class RegisterController {
 			riEntity.setEnd_time(registerEntity.getEnd_time());
 			riEntity.setCapacity(registerEntity.getCapacity());
 			riEntity.setInp_date(inpDate);
-	//		System.out.println("course_no: " + riEntity.getCourse_no());
-	//		System.out.println("course_name: " + riEntity.getCourse_name());
-	//		System.out.println("the_date: " + riEntity.getThe_date());
-	//		System.out.println("start_time: " + riEntity.getStart_time());
-	//		System.out.println("end_time: " + riEntity.getEnd_time());
-	//		System.out.println("capacity: " + riEntity.getCapacity());
-			DataBaseOperation dbo = new DataBaseOperation();
+//			DataBaseOperation dbo = new DataBaseOperation();
 			
 			try {
 				mapper.insert(riEntity);
@@ -223,3 +202,26 @@ public class RegisterController {
 		return "Register/completion";
 	}
 }
+
+//	デバッグツール
+
+//System.out.println("course_no: " + registerEntity.getCourse_no());
+//System.out.println("course_name: " + registerEntity.getCourse_name());
+//System.out.println("the_date: " + registerEntity.getThe_date());
+//System.out.println("start_time: " + registerEntity.getStart_time());
+//System.out.println("end_time: " + registerEntity.getEnd_time());
+//System.out.println("capacity: " + registerEntity.getCapacity());
+//System.out.println("iyear: " + registerEntity.getIyear());
+//System.out.println("imonth: " + registerEntity.getImonth());
+//System.out.println("iday: " + registerEntity.getIday());
+//System.out.println("shour: " + registerEntity.getShour());
+//System.out.println("sminute: " + registerEntity.getSminute());
+//System.out.println("ehour: " + registerEntity.getEhour());
+//System.out.println("eminute: " + registerEntity.getEminute());
+
+//		System.out.println("course_no: " + riEntity.getCourse_no());
+//		System.out.println("course_name: " + riEntity.getCourse_name());
+//		System.out.println("the_date: " + riEntity.getThe_date());
+//		System.out.println("start_time: " + riEntity.getStart_time());
+//		System.out.println("end_time: " + riEntity.getEnd_time());
+//		System.out.println("capacity: " + riEntity.getCapacity());

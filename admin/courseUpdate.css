@@ -1,0 +1,60 @@
+@charset "UTF-8";
+
+.title{
+	color: blue;
+	text-align: center;
+}
+
+.courseno-block{
+	font-weight: bold;
+	margin-left: 330pt;
+	margin-right: 30pt;
+}
+
+.coursename-block{
+	font-weight: bold;
+	margin-left: 330pt;
+	margin-right: 42pt;
+}
+
+.thedate-block{
+	font-weight: bold;
+	margin-left: 330pt;
+	margin-right: 30pt;
+}
+
+.time-block{
+	font-weight: bold;
+	margin-left: 330pt;
+	margin-right: 30pt;
+}
+
+.capacity-block{
+	font-weight: bold;
+	margin-left: 330pt;
+	margin-right: 54pt;
+}
+
+.back-button{
+	text-align: center;
+	color: blue;
+	background-color: mediumspringgreen;
+	border-radius: 10%;
+	margin-bottom: -50pt;
+	margin-left: 380pt;
+	margin-top: 10pt;
+	padding-top: 0pt;;
+	width: 130px;
+}
+
+.confirm-button{
+	text-align: center;
+	color: blue;
+	background-color: mediumspringgreen;
+	border-radius: 10%;
+	margin-bottom: -50pt;
+	margin-left: 10pt;
+	margin-top: 10pt;
+	padding-top: 0pt;;
+	width: 130px;
+}

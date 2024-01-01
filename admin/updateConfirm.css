@@ -1,0 +1,70 @@
+@charset "UTF-8";
+
+.title{
+	color: blue;
+	text-align: center;
+}
+
+.explain{
+	color: blue;
+	text-align: center;
+	font-weight: bold;
+}
+
+.courseno-block{
+	font-weight: bold;
+	margin-left: 350pt;
+	margin-right: 67pt;
+}
+
+.font-color{
+	color: blue;
+}
+
+.coursename-block{
+	font-weight: bold;
+	margin-left: 350pt;
+	margin-right: 80pt;
+}
+
+.thedate-block{
+	font-weight: bold;
+	margin-left: 350pt;
+	margin-right: 55pt;
+}
+
+.time-block{
+	font-weight: bold;
+	margin-left: 350pt;
+	margin-right: 67pt;
+}
+
+.capacity-block{
+	font-weight: bold;
+	margin-left: 350pt;
+	margin-right: 90pt;
+}
+
+.back-button{
+	text-align: center;
+	color: blue;
+	background-color: mediumspringgreen;
+	border-radius: 10%;
+	margin-bottom: -50pt;
+	margin-left: 380pt;
+	margin-top: 10pt;
+	padding-top: 0pt;;
+	width: 130px;
+}
+
+.update-button{
+	text-align: center;
+	color: blue;
+	background-color: mediumspringgreen;
+	border-radius: 10%;
+	margin-bottom: -50pt;
+	margin-left: 10pt;
+	margin-top: 10pt;
+	padding-top: 0pt;;
+	width: 130px;
+}

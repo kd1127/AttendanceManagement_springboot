@@ -1,0 +1,41 @@
+@charset "UTF-8";
+
+.title{
+	color: blue;
+	text-align: center;
+}
+
+.display{
+	text-align: center;
+	font-weight: bold;	
+}
+
+.complete{
+	color: blue;
+	text-align: center;
+	font-weight: bold;
+}
+
+.apply-button{
+	text-align: center;
+	color: blue;
+	background-color: mediumspringgreen;
+	border-radius: 10%;
+	margin-bottom: -50pt;
+	margin-left: 380pt;
+	margin-top: 10pt;
+	padding-top: 0pt;;
+	width: 130px;
+}
+
+.logout-button{
+	text-align: center;
+	color: blue;
+	background-color: mediumspringgreen;
+	border-radius: 10%;
+	margin-bottom: -50pt;
+	margin-left: 10pt;
+	margin-top: 10pt;
+	padding-top: 0pt;;
+	width: 130px;
+}

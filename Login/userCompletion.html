@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8">
+		<title>ユーザー登録完了</title>
+		<link rel="stylesheet" href="../css/login/userCompletion.css">
+	</head>
+	<body>
+		<h1 class="title">ユーザー登録完了</h1>
+		
+		<form th:action="@{/apply}" method="get" th:object="${userEntity}">
+			<p class="display">ユーザーID  <span th:text="*{userId}"></span></p>
+			<p class="complete">上記IDでユーザーが登録されました。</p>
+			<input type="submit" value="講座申し込み" class="apply-button"/>
+			<input type="submit" value="ログアウト" formaction="/login" formmethod="get" class="logout-button"/>		
+		</form>
+	</body>
+</html>

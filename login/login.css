@@ -1,0 +1,42 @@
+@charset "UTF-8";
+
+.title{
+	color: blue;
+	text-align: center;
+}
+
+.error{
+	text-align: center;
+}
+
+.userid-block{
+	color: blue;
+	margin-left: 300pt;
+	margin-right: 30pt;	
+	font-weight: bold;
+}
+
+.passwd-block{
+	color: blue;
+	margin-left: 300pt;
+	margin-right: 33pt;	
+	font-weight: bold;
+}
+
+.login-button{
+	text-align: center;
+	color: blue;
+	background-color: mediumspringgreen;
+	border-radius: 10%;
+	margin-bottom: -50pt;
+	margin-left: 430pt;
+	margin-top: 10pt;
+	padding-top: 0pt;;
+	width: 130px;
+}
+
+.explain{
+	color: blue;
+	text-align: center;
+	font-weight: bold;
+}

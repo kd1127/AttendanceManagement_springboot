@@ -1,0 +1,22 @@
+@charset "UTF-8";
+
+.title{
+	color: blue;
+	text-align: center;
+}
+
+.text-decoration{
+	text-align: center;
+}
+
+.toLogin-button{
+	text-align: center;
+	color: blue;
+	background-color: mediumspringgreen;
+	border-radius: 10%;
+	margin-bottom: -50pt;
+	margin-left: 420pt;
+	margin-top: 10pt;
+	padding-top: 0pt;;
+	width: 130px;
+}	

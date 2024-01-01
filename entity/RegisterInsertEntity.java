@@ -2,6 +2,11 @@ package com.example.demo.entity;
 
 import java.sql.Date;
 
+/*
+ * DB登録用クラス
+ * RegisterEntityでフォームの入力値を受け取り、このクラスに変換する
+ */
+
 import org.springframework.stereotype.Component;
 
 import lombok.Data;

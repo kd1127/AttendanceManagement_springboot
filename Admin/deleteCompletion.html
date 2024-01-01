@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8">
+		<title>削除完了</title>
+		<link rel="stylesheet" href="../css/admin/deleteCompletion.css">
+	</head>
+	<body>
+		<h1 class="title">削除完了</h1>
+		<p class="explain">削除を完了しました。</p>
+		
+		<form th:action="@{/RegisterTop}" method="post">
+			<input type="submit" value="講座管理メニュー" name="situation" class="registop-button"/>
+			<input type="submit" value="講座検索" formaction="/search" formmethod="get" class="search-button"/>
+			<input type="submit" value="講座一覧" formaction="/courseList" name="situation" class="list-button"/>
+			<input type="submit" value="ログアウト" formaction="/login" formmethod="get" class="logout-button"/>
+		</form>
+	</body>
+</html>
